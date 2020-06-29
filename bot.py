@@ -132,8 +132,24 @@ async def on_ready():
     ## TODO: Do something in here, like changing the activity for every single
     # second
     logger.info('Succesfully logged in as {0.user}!'.format(client))
-    activity = discord.Game("Use ?prefix to get prefix")
+    activity = discord.Game("Enjoying the comfy life")
     await client.change_presence(activity = activity)
+
+@client.event
+async def on_member_join(member):
+    await member.add_roles(member.guild.get_role(727210595614720061))
+    await member.edit(nick = "Comfy" + member.name)
+    await guild.get_channel(727210036279115779).send(f"Welcome, {member.mention}!")
+
+@client.event
+async def on_guild_join(guild):
+    if guild.id != 727210035796770857:
+        for channel in guild.text_channels:
+            try:
+                await channel.send("I'm gonna comfy the fuck outta here")
+                break
+            except:  continue
+        await guild.leave()
 
 @client.event
 async def on_message(message):
