@@ -138,8 +138,8 @@ async def on_ready():
 @client.event
 async def on_member_join(member):
     await member.add_roles(member.guild.get_role(727210595614720061))
-    await member.edit(nick = "Comfy" + member.name)
-    await guild.get_channel(727210036279115779).send(f"Welcome, {member.mention}!")
+    await member.edit(nick = ("Comfy " + member.name)[:32])
+    await member.guild.get_channel(727210036279115779).send(f"Welcome, {member.mention}!")
 
 @client.event
 async def on_guild_join(guild):

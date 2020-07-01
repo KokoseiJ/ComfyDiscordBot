@@ -6,7 +6,7 @@ Usage: echo [message]\
 """
 
 async def main(message, **kwargs):
-    cmd = message.content.split()
+    cmd = message.content.split(" ")
     if len(cmd) == 1:
         raise ValueError("Command should contain messages to echo.")
     else:
